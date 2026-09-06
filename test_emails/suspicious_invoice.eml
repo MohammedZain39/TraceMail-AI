@@ -1,0 +1,26 @@
+From: finance@paypa1-security.com
+To: employee@company.com
+Reply-To: urgent-payment@protonmail.com
+Subject: URGENT: Invoice Payment Required Today
+Date: Sat, 5 Sep 2026 10:30:00 +0530
+Message-ID: <123456789@example.com>
+Received: Received: from mail.paypa1-security.com (8.8.8.8) by mail.company.com;
+Authentication-Results: mail.company.com; spf=fail; dkim=fail; dmarc=fail
+Received-SPF: fail
+DKIM-Signature:
+
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Accounts Team,
+
+URGENT ACTION REQUIRED.
+
+Your invoice payment is overdue. Please process the payment immediately using the link below.
+
+"http://paypa1-security.com/invoice/84721"
+
+Failure to complete the payment today may result in account suspension.
+
+Regards,
+Finance Department
