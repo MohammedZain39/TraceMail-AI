@@ -41,7 +41,7 @@ from services.supabase_case_manager import (
 # ============================================================
 
 app = FastAPI(
-    title="TraceMail AI",
+    title="MailTracer AI",
     description="AI-powered email threat detection and forensic intelligence platform",
     version="0.1.0",
 )
