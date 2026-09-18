@@ -1,0 +1,2607 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* =========================================================
+   TRACE MAIL TOP NAVBAR
+   ========================================================= */
+
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  background: rgba(7, 14, 25, 0.94);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+
+  backdrop-filter: blur(18px);
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease;
+}
+
+.top-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  min-width: 0;
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+
+  color: #22d3ee;
+
+  font-weight: 800;
+}
+
+.logo-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.logo-subtitle {
+  margin-top: 1px;
+
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #64748b;
+}
+
+.navbar-search {
+  width: min(420px, 40vw);
+
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.navbar-search:focus-within {
+  border-color: rgba(34, 211, 238, 0.35);
+  background: rgba(34, 211, 238, 0.035);
+}
+
+.search-icon {
+  color: #64748b;
+  font-size: 19px;
+}
+
+.navbar-search input {
+  flex: 1;
+
+  min-width: 0;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #e2e8f0;
+
+  font-size: 12px;
+}
+
+.navbar-search input::placeholder {
+  color: #64748b;
+}
+
+.search-shortcut {
+  padding: 3px 6px;
+
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #64748b;
+
+  font-size: 9px;
+}
+
+.top-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-icon-button {
+  position: relative;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: transparent;
+  border: 1px solid transparent;
+
+  color: #94a3b8;
+
+  cursor: pointer;
+
+  font-size: 17px;
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.navbar-icon-button:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(148, 163, 184, 0.10);
+
+  color: #e2e8f0;
+}
+
+.notification-dot {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+
+  box-shadow: 0 0 0 2px #07101c;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  height: 42px;
+
+  padding: 4px 8px 4px 5px;
+
+  border-radius: 10px;
+
+  background: transparent;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.profile-button:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(148, 163, 184, 0.10);
+}
+
+.profile-avatar,
+.large-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #164e63,
+    #0e7490
+  );
+
+  color: #cffafe;
+
+  font-weight: 700;
+}
+
+.profile-avatar {
+  width: 31px;
+  height: 31px;
+
+  font-size: 12px;
+}
+
+.profile-info {
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.profile-role {
+  margin-top: 1px;
+
+  font-size: 9px;
+  color: #64748b;
+}
+
+.profile-chevron {
+  margin-left: 2px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.navbar-dropdown-container {
+  position: relative;
+}
+
+.navbar-dropdown {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  right: 0;
+
+  width: 330px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #0b1422;
+  border: 1px solid #1b2a3d;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45);
+
+  animation: dropdownIn 160ms ease;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+}
+
+.dropdown-title {
+  color: #f1f5f9;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.dropdown-subtitle {
+  margin-top: 3px;
+
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.notification-count {
+  min-width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: rgba(239, 68, 68, 0.12);
+
+  color: #f87171;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.notification-item {
+  display: flex;
+  gap: 11px;
+
+  padding: 13px 16px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.07);
+}
+
+.notification-indicator {
+  flex-shrink: 0;
+
+  width: 7px;
+  height: 7px;
+
+  margin-top: 5px;
+
+  border-radius: 50%;
+}
+
+.notification-indicator.critical {
+  background: #ef4444;
+}
+
+.notification-indicator.warning {
+  background: #f59e0b;
+}
+
+.notification-indicator.success {
+  background: #22c55e;
+}
+
+.notification-title {
+  color: #dbe4ee;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.notification-text {
+  margin-top: 3px;
+
+  color: #64748b;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.notification-time {
+  margin-top: 4px;
+
+  color: #475569;
+
+  font-size: 9px;
+}
+
+.view-notifications {
+  width: 100%;
+
+  padding: 12px 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.07);
+
+  color: #22d3ee;
+
+  font-size: 10px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.view-notifications:hover {
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.profile-dropdown {
+  width: 230px;
+  padding: 8px;
+}
+
+.profile-dropdown-header {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 8px;
+}
+
+.large-avatar {
+  width: 38px;
+  height: 38px;
+
+  font-size: 14px;
+}
+
+.dropdown-divider {
+  height: 1px;
+
+  margin: 5px 0;
+
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.dropdown-action {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px;
+
+  border-radius: 8px;
+
+  background: transparent;
+  border: none;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.dropdown-action:hover {
+  background: rgba(255, 255, 255, 0.045);
+  color: #f1f5f9;
+}
+
+.dropdown-action.logout {
+  color: #f87171;
+}
+
+.dropdown-action.logout:hover {
+  background: rgba(239, 68, 68, 0.07);
+}
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background: #f3f6fa !important;
+  color: #172033;
+}
+
+html.light .top-navbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom-color: #dbe2ea;
+}
+
+html.light .logo-title {
+  color: #172033;
+}
+
+html.light .navbar-search {
+  background: #f7f9fc;
+  border-color: #dbe2ea;
+}
+
+html.light .navbar-search input {
+  color: #172033;
+}
+
+html.light .navbar-search input::placeholder {
+  color: #8a97a8;
+}
+
+html.light .navbar-icon-button {
+  color: #64748b;
+}
+
+html.light .navbar-icon-button:hover {
+  background: #f1f5f9;
+  color: #172033;
+}
+
+html.light .profile-button:hover {
+  background: #f1f5f9;
+}
+
+html.light .profile-name {
+  color: #172033;
+}
+
+html.light .navbar-dropdown {
+  background: #ffffff;
+  border-color: #dbe2ea;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+html.light .dropdown-title {
+  color: #172033;
+}
+
+html.light .notification-title {
+  color: #263247;
+}
+
+html.light .notification-text {
+  color: #64748b;
+}
+
+html.light .dropdown-action {
+  color: #64748b;
+}
+
+html.light .dropdown-action:hover {
+  background: #f1f5f9;
+  color: #172033;
+}
+
+html.light .notification-dot {
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+@media (max-width: 900px) {
+  .navbar-search {
+    width: 240px;
+  }
+
+  .profile-info,
+  .profile-chevron {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .top-navbar {
+    padding: 0 12px;
+  }
+
+  .top-navbar-left {
+    gap: 10px;
+  }
+
+  .mobile-logo {
+    display: none;
+  }
+
+  .navbar-search {
+    width: 200px;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background: #050b14;
+
+  color: #e2e8f0;
+}
+
+.login-background-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.25;
+
+  background-image:
+    linear-gradient(
+      rgba(34, 211, 238, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(34, 211, 238, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+}
+
+.login-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(420px, calc(100vw - 32px));
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 25px;
+}
+
+.login-logo {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: rgba(34, 211, 238, 0.10);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+
+  color: #22d3ee;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.login-brand-name {
+  color: #f1f5f9;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.login-brand-subtitle {
+  margin-top: 2px;
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.login-card {
+  width: 100%;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  background: #0b1422;
+
+  border: 1px solid #1b2a3d;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+.login-heading {
+  color: #f8fafc;
+
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.login-description {
+  margin-top: 7px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.login-form {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form > label,
+.password-label-row label {
+  margin-bottom: 7px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.login-form input {
+  width: 100%;
+
+  height: 43px;
+
+  padding: 0 12px;
+
+  border-radius: 9px;
+
+  background: #07101c;
+
+  border: 1px solid #1b2a3d;
+
+  outline: none;
+
+  color: #e2e8f0;
+
+  font-size: 12px;
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.login-form input::placeholder {
+  color: #475569;
+}
+
+.login-form input:focus {
+  border-color: rgba(34, 211, 238, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 211, 238, 0.07);
+}
+
+.password-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 18px;
+}
+
+.forgot-password {
+  margin-bottom: 7px;
+
+  border: none;
+  background: transparent;
+
+  color: #22d3ee;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 55px;
+}
+
+.password-input button {
+  position: absolute;
+
+  right: 10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.password-input button:hover {
+  color: #22d3ee;
+}
+
+.login-error {
+  margin-top: 12px;
+
+  padding: 9px 11px;
+
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+
+  color: #f87171;
+
+  font-size: 10px;
+}
+
+.login-submit {
+  width: 100%;
+
+  height: 43px;
+
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #22d3ee;
+
+  color: #041019;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 150ms ease,
+    background 150ms ease;
+}
+
+.login-submit:hover {
+  background: #67e8f9;
+
+  transform: translateY(-1px);
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 23px 0;
+
+  color: #334155;
+
+  font-size: 9px;
+}
+
+.login-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: #1b2a3d;
+}
+
+.login-security-note {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px;
+
+  border-radius: 9px;
+
+  background: rgba(34, 197, 94, 0.035);
+  border: 1px solid rgba(34, 197, 94, 0.09);
+
+  color: #64748b;
+
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.login-security-note > span {
+  color: #22c55e;
+
+  font-size: 13px;
+}
+
+.login-footer {
+  margin-top: 18px;
+
+  color: #334155;
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   TRACE MAIL — SINGLE GLOBAL THEME SYSTEM
+   Keep theme state on <html> as either .light or .dark.
+   The TopNavbar toggle should add/remove those classes.
+   ========================================================= */
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-solid: #ffffff;
+  --border: rgba(100, 116, 139, 0.20);
+  --muted: #64748b;
+  --accent: #06b6d4;
+  --page-text: #0f172a;
+  --page-muted: #64748b;
+  --page-border: rgba(100, 116, 139, 0.20);
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #050d16;
+  --foreground: #f8fafc;
+  --surface: rgba(10, 22, 34, 0.82);
+  --surface-solid: #0a1622;
+  --border: rgba(71, 85, 105, 0.35);
+  --muted: #64748b;
+  --accent: #06d6f0;
+  --page-text: #f8fafc;
+  --page-muted: #94a3b8;
+  --page-border: rgba(71, 85, 105, 0.35);
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+/* One background layer for the entire application. */
+.global-background {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #c7d2fe 0%,
+      #eef2ff 40%,
+      #f8fafc 75%,
+      #ffffff 100%
+    );
+  transition: background 350ms ease;
+}
+
+html.dark .global-background {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      rgba(99, 102, 241, 0.22) 0%,
+      #07111c 48%,
+      #050b12 100%
+    );
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* Body background — same visual language as the global layer. */
+html.light body {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #c7d2fe 0%,
+      #eef2ff 40%,
+      #f8fafc 75%,
+      #ffffff 100%
+    );
+  color: #0f172a;
+}
+
+html.dark body {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #111827 0%,
+      #061019 42%,
+      #020911 100%
+    );
+  color: #f8fafc;
+}
+
+/* =========================================================
+   SHARED AUTHENTICATED APP SHELL
+   Only the authenticated layout owns these offsets.
+   Individual pages should NOT add ml-56 / ml-[...] / pt-[...]
+   for the sidebar or navbar.
+   ========================================================= */
+
+.tm-app-shell {
+  min-height: 100vh;
+  width: 100%;
+  background: transparent;
+  color: var(--page-text);
+}
+
+.tm-main-shell {
+  min-height: 100vh;
+  margin-left: 294px;
+  position: relative;
+  background: transparent;
+}
+
+.tm-page-content {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 72px;
+  background: transparent;
+}
+
+/* =========================================================
+   TOP NAVBAR THEME
+   ========================================================= */
+
+html.light .top-navbar {
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom-color: rgba(148, 163, 184, 0.22);
+  color: #0f172a;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
+}
+
+html.dark .top-navbar {
+  background: rgba(7, 14, 25, 0.94);
+  border-bottom-color: rgba(148, 163, 184, 0.10);
+}
+
+html.light .logo-title,
+html.light .profile-name {
+  color: #172033;
+}
+
+html.light .logo-subtitle,
+html.light .profile-role,
+html.light .search-icon,
+html.light .profile-chevron {
+  color: #64748b;
+}
+
+html.light .navbar-search {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(100, 116, 139, 0.22);
+}
+
+html.light .navbar-search input {
+  color: #172033;
+}
+
+html.light .navbar-search input::placeholder {
+  color: #94a3b8;
+}
+
+html.light .search-shortcut {
+  background: #eef2f7;
+  color: #64748b;
+}
+
+html.light .navbar-icon-button {
+  color: #64748b;
+}
+
+html.light .navbar-icon-button:hover,
+html.light .profile-button:hover {
+  background: rgba(241, 245, 249, 0.9);
+  color: #172033;
+}
+
+html.light .navbar-dropdown {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(100, 116, 139, 0.20);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+html.light .dropdown-title {
+  color: #172033;
+}
+
+html.light .notification-title {
+  color: #263247;
+}
+
+html.light .notification-text,
+html.light .dropdown-action {
+  color: #64748b;
+}
+
+html.light .dropdown-action:hover {
+  background: #f1f5f9;
+  color: #172033;
+}
+
+html.light .notification-dot {
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(100, 116, 139, 0.25);
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.55);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: #06b6d4;
+  border-color: rgba(6, 182, 212, 0.45);
+  background: rgba(6, 182, 212, 0.08);
+  transform: translateY(-1px);
+}
+
+html.light .theme-toggle {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(100, 116, 139, 0.22);
+  color: #475569;
+}
+
+html.light .theme-toggle:hover {
+  color: #0891b2;
+  border-color: rgba(8, 145, 178, 0.40);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+/* =========================================================
+   LOGIN / REGISTER — THEME AWARE
+   ========================================================= */
+
+html.light .login-page {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #c7d2fe 0%,
+      #eef2ff 40%,
+      #f8fafc 78%,
+      #ffffff 100%
+    );
+  color: #0f172a;
+}
+
+html.dark .login-page {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #111827 0%,
+      #061019 42%,
+      #020911 100%
+    );
+  color: #e2e8f0;
+}
+
+html.light .login-background-grid {
+  opacity: 0.20;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.055) 1px, transparent 1px);
+}
+
+html.light .login-brand-name,
+html.light .login-heading {
+  color: #172033;
+}
+
+html.light .login-brand-subtitle,
+html.light .login-description,
+html.light .login-footer,
+html.light .login-security-note,
+html.light .login-form > label,
+html.light .password-label-row label {
+  color: #64748b;
+}
+
+html.light .login-card {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(100, 116, 139, 0.20);
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+html.light .login-form input {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(100, 116, 139, 0.22);
+  color: #172033;
+}
+
+html.light .login-form input::placeholder {
+  color: #94a3b8;
+}
+
+html.light .login-divider span {
+  background: rgba(100, 116, 139, 0.20);
+}
+
+html.light .login-divider {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   COMMON THEME SURFACES
+   These allow shared cards/shells to follow the same theme.
+   ========================================================= */
+
+html.light .theme-surface,
+html.light .panel,
+html.light .card,
+html.light .surface {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(100, 116, 139, 0.20);
+  color: #0f172a;
+}
+
+html.dark .theme-surface,
+html.dark .panel,
+html.dark .card,
+html.dark .surface {
+  background: rgba(10, 22, 34, 0.82);
+  border-color: rgba(71, 85, 105, 0.35);
+  color: #f8fafc;
+}
+
+/* =========================================================
+   RESPONSIVE SHELL
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .tm-main-shell {
+    margin-left: 0;
+  }
+
+  .tm-page-content {
+    padding-top: 72px;
+  }
+
+  .navbar-search {
+    width: 240px;
+  }
+
+  .profile-info,
+  .profile-chevron {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .top-navbar {
+    padding: 0 12px;
+  }
+
+  .top-navbar-left {
+    gap: 10px;
+  }
+
+  .mobile-logo {
+    display: none;
+  }
+
+  .navbar-search {
+    width: 200px;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   FINAL GLOBAL THEME OVERRIDES
+   IMPORTANT:
+   TraceMail pages use many Tailwind dark-background classes.
+   These selectors make those existing components theme-aware
+   without requiring every page to be rewritten.
+   ========================================================= */
+
+/* ---------- Theme variables ---------- */
+
+html.light {
+  --tm-page-bg: #f8fafc;
+  --tm-page-bg-soft: #eef5ff;
+  --tm-surface: rgba(255, 255, 255, 0.86);
+  --tm-surface-solid: #ffffff;
+  --tm-surface-soft: #f1f5f9;
+  --tm-border: rgba(100, 116, 139, 0.20);
+  --tm-text: #0f172a;
+  --tm-text-strong: #172033;
+  --tm-text-soft: #475569;
+  --tm-muted: #64748b;
+}
+
+html.dark {
+  --tm-page-bg: #061019;
+  --tm-page-bg-soft: #07111c;
+  --tm-surface: rgba(10, 22, 34, 0.86);
+  --tm-surface-solid: #0b1422;
+  --tm-surface-soft: #0f1928;
+  --tm-border: rgba(71, 85, 105, 0.35);
+  --tm-text: #f8fafc;
+  --tm-text-strong: #e7edf5;
+  --tm-text-soft: #c2ccd8;
+  --tm-muted: #8a99ad;
+}
+
+/* ---------- Entire application ---------- */
+
+html,
+body {
+  min-height: 100%;
+}
+
+html.light,
+html.light body {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #c7d2fe 0%,
+      #eef5ff 38%,
+      #f8fafc 72%,
+      #ffffff 100%
+    ) !important;
+  color: var(--tm-text) !important;
+}
+
+html.dark,
+html.dark body {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #111827 0%,
+      #061019 42%,
+      #020911 100%
+    ) !important;
+  color: var(--tm-text) !important;
+}
+
+html.light .global-background {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #c7d2fe 0%,
+      #eef5ff 38%,
+      #f8fafc 72%,
+      #ffffff 100%
+    ) !important;
+}
+
+html.dark .global-background {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      rgba(99, 102, 241, 0.22) 0%,
+      #07111c 48%,
+      #050b12 100%
+    ) !important;
+}
+
+/* Never let the shared shell cover the global theme. */
+html.light .tm-app-shell,
+html.light .tm-main-shell,
+html.light .tm-page-content,
+html.dark .tm-app-shell,
+html.dark .tm-main-shell,
+html.dark .tm-page-content {
+  background: transparent !important;
+}
+
+/* ---------- Existing TraceMail Tailwind dark surfaces ---------- */
+
+html.light .tm-page-content [class*="bg-[#0b1621]"],
+html.light .tm-page-content [class*="bg-[#071019]"],
+html.light .tm-page-content [class*="bg-[#0f1928]"],
+html.light .tm-page-content [class*="bg-[#09131d]"],
+html.light .tm-page-content [class*="bg-[#0d1725]"],
+html.light .tm-page-content [class*="bg-[#101c2c]"],
+html.light .tm-page-content [class*="bg-[#08131f]"],
+html.light .tm-page-content [class*="bg-[#0b1220]"],
+html.light .tm-page-content [class*="bg-[#050b14]"],
+html.light .tm-page-content [class*="bg-[#132237]"],
+html.light .tm-page-content [class*="bg-[#0e1b27]"],
+html.light .tm-page-content [class*="bg-[#08111e]"],
+html.light .tm-page-content [class*="bg-[#070f1b]"],
+html.light .tm-page-content [class*="bg-[#050a12]"],
+html.light .tm-page-content [class*="bg-[#111e2b]"],
+html.light .tm-page-content [class*="bg-[#0b1422]"],
+html.light .tm-page-content [class*="bg-[#0a1622]"],
+html.light .tm-page-content [class*="bg-[#07111c]"],
+html.light .tm-page-content [class*="bg-[#07101c]"],
+html.light .tm-page-content [class*="bg-[#060d17]"] {
+  background-color: var(--tm-surface) !important;
+  background-image: none !important;
+}
+
+/* Dark theme keeps the original cyber surfaces. */
+html.dark .tm-page-content [class*="bg-[#0b1621]"] { background-color: #0b1621 !important; }
+html.dark .tm-page-content [class*="bg-[#071019]"] { background-color: #071019 !important; }
+html.dark .tm-page-content [class*="bg-[#0f1928]"] { background-color: #0f1928 !important; }
+html.dark .tm-page-content [class*="bg-[#09131d]"] { background-color: #09131d !important; }
+html.dark .tm-page-content [class*="bg-[#0d1725]"] { background-color: #0d1725 !important; }
+html.dark .tm-page-content [class*="bg-[#101c2c]"] { background-color: #101c2c !important; }
+html.dark .tm-page-content [class*="bg-[#08131f]"] { background-color: #08131f !important; }
+html.dark .tm-page-content [class*="bg-[#0b1220]"] { background-color: #0b1220 !important; }
+html.dark .tm-page-content [class*="bg-[#050b14]"] { background-color: #050b14 !important; }
+html.dark .tm-page-content [class*="bg-[#132237]"] { background-color: #132237 !important; }
+html.dark .tm-page-content [class*="bg-[#0e1b27]"] { background-color: #0e1b27 !important; }
+html.dark .tm-page-content [class*="bg-[#08111e]"] { background-color: #08111e !important; }
+html.dark .tm-page-content [class*="bg-[#070f1b]"] { background-color: #070f1b !important; }
+html.dark .tm-page-content [class*="bg-[#050a12]"] { background-color: #050a12 !important; }
+html.dark .tm-page-content [class*="bg-[#111e2b]"] { background-color: #111e2b !important; }
+html.dark .tm-page-content [class*="bg-[#0b1422]"] { background-color: #0b1422 !important; }
+html.dark .tm-page-content [class*="bg-[#0a1622]"] { background-color: #0a1622 !important; }
+html.dark .tm-page-content [class*="bg-[#07111c]"] { background-color: #07111c !important; }
+html.dark .tm-page-content [class*="bg-[#07101c]"] { background-color: #07101c !important; }
+html.dark .tm-page-content [class*="bg-[#060d17]"] { background-color: #060d17 !important; }
+
+/* ---------- Light-theme borders ---------- */
+
+html.light .tm-page-content [class*="border-[#1b2a3d]"] {
+  border-color: rgba(100, 116, 139, 0.20) !important;
+}
+
+/* ---------- Light-theme text used by the pages ---------- */
+
+html.light .tm-page-content [class*="text-[#e7edf5]"] {
+  color: #172033 !important;
+}
+
+html.light .tm-page-content [class*="text-[#c2ccd8]"] {
+  color: #334155 !important;
+}
+
+html.light .tm-page-content [class*="text-[#9aa8ba]"] {
+  color: #64748b !important;
+}
+
+html.light .tm-page-content [class*="text-[#8a99ad]"] {
+  color: #64748b !important;
+}
+
+/* Common Tailwind text colors that otherwise remain too dark/light. */
+html.light .tm-page-content .text-white {
+  color: #172033 !important;
+}
+
+html.light .tm-page-content .text-slate-100,
+html.light .tm-page-content .text-slate-200 {
+  color: #334155 !important;
+}
+
+html.light .tm-page-content .text-slate-300,
+html.light .tm-page-content .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* ---------- Cards / panels ---------- */
+
+html.light .tm-page-content [class*="rounded-"] {
+  /* Preserve layout/radius; only supply a readable surface when
+     the component explicitly used one of TraceMail's dark colors. */
+}
+
+html.light .theme-surface,
+html.light .panel,
+html.light .card,
+html.light .surface {
+  background: var(--tm-surface) !important;
+  border-color: var(--tm-border) !important;
+  color: var(--tm-text) !important;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.07);
+}
+
+html.dark .theme-surface,
+html.dark .panel,
+html.dark .card,
+html.dark .surface {
+  background: var(--tm-surface) !important;
+  border-color: var(--tm-border) !important;
+  color: var(--tm-text) !important;
+}
+
+/* ---------- Inputs / selects / textareas ---------- */
+
+html.light .tm-page-content input,
+html.light .tm-page-content textarea,
+html.light .tm-page-content select {
+  color: #172033 !important;
+  background-color: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(100, 116, 139, 0.22) !important;
+}
+
+html.light .tm-page-content input::placeholder,
+html.light .tm-page-content textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* ---------- Shared sidebar ---------- */
+
+html.light .app-sidebar,
+html.light .sidebar {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(100, 116, 139, 0.18) !important;
+  color: #172033 !important;
+}
+
+html.dark .app-sidebar,
+html.dark .sidebar {
+  background: rgba(5, 13, 22, 0.94) !important;
+}
+
+/* ---------- Login / register ---------- */
+
+html.light .login-page {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #c7d2fe 0%,
+      #eef5ff 38%,
+      #f8fafc 72%,
+      #ffffff 100%
+    ) !important;
+  color: #172033 !important;
+}
+
+html.light .login-card {
+  background: rgba(255, 255, 255, 0.86) !important;
+  border-color: rgba(100, 116, 139, 0.20) !important;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.10) !important;
+}
+
+html.light .login-form input {
+  background: rgba(255, 255, 255, 0.90) !important;
+  color: #172033 !important;
+  border-color: rgba(100, 116, 139, 0.22) !important;
+}
+
+html.dark .login-page {
+  background:
+    radial-gradient(
+      125% 125% at 50% -50%,
+      #111827 0%,
+      #061019 42%,
+      #020911 100%
+    ) !important;
+}
+
+/* ---------- Theme button ---------- */
+
+.theme-toggle {
+  position: relative !important;
+  z-index: 100 !important;
+  pointer-events: auto !important;
+  flex-shrink: 0;
+}
+
+html.light .theme-toggle {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #334155 !important;
+  border-color: rgba(100, 116, 139, 0.25) !important;
+}
+
+html.dark .theme-toggle {
+  background: rgba(15, 23, 42, 0.55) !important;
+  color: #94a3b8 !important;
+}
+
+/* ---------- Smooth theme transition ---------- */
+
+html.light .tm-page-content *,
+html.dark .tm-page-content * {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+/* ============================================================
+   TRACE MAIL AI — GLOBAL DESIGN SYSTEM
+   Light: White + Soft Blue
+   Dark: Cyber Navy
+   ============================================================ */
+
+
+/* ============================================================
+   ROOT
+   ============================================================ */
+
+:root {
+  --tm-sidebar-width: 292px;
+  --tm-navbar-height: 78px;
+
+  --tm-accent: #06b6d4;
+  --tm-accent-hover: #0891b2;
+
+  --tm-radius-sm: 8px;
+  --tm-radius-md: 12px;
+  --tm-radius-lg: 16px;
+}
+
+
+/* ============================================================
+   LIGHT THEME
+   ============================================================ */
+
+html.light {
+  --tm-page-bg: #f3f8fc;
+  --tm-page-bg-2: #edf5fa;
+
+  --tm-sidebar-bg: rgba(255, 255, 255, 0.92);
+  --tm-navbar-bg: rgba(255, 255, 255, 0.88);
+
+  --tm-surface: #ffffff;
+  --tm-surface-2: #f7fbfe;
+  --tm-surface-3: #edf6fb;
+
+  --tm-border: #d8e5ef;
+  --tm-border-strong: #c7d8e6;
+
+  --tm-text: #17233a;
+  --tm-text-2: #34455f;
+  --tm-text-3: #65758d;
+  --tm-text-4: #8a99aa;
+
+  --tm-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.045);
+
+  --tm-shadow-hover:
+    0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ============================================================
+   DARK THEME
+   ============================================================ */
+
+html.dark {
+  --tm-page-bg: #06101a;
+  --tm-page-bg-2: #081521;
+
+  --tm-sidebar-bg: #07111c;
+  --tm-navbar-bg: rgba(6, 15, 25, 0.94);
+
+  --tm-surface: #0b1724;
+  --tm-surface-2: #0e1c2a;
+  --tm-surface-3: #101f2e;
+
+  --tm-border: #1d3043;
+  --tm-border-strong: #294056;
+
+  --tm-text: #f1f5f9;
+  --tm-text-2: #d2dce7;
+  --tm-text-3: #91a2b6;
+  --tm-text-4: #64768b;
+
+  --tm-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.18);
+
+  --tm-shadow-hover:
+    0 15px 40px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  min-height: 100%;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+html {
+  background: var(--tm-page-bg);
+}
+
+body {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      900px 450px at 70% -10%,
+      rgba(14, 165, 233, 0.10),
+      transparent 70%
+    ),
+    var(--tm-page-bg);
+
+  color: var(--tm-text);
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+
+/* ============================================================
+   LIGHT BACKGROUND
+   ============================================================ */
+
+html.light body {
+  background:
+    radial-gradient(
+      1100px 500px at 70% -10%,
+      rgba(14, 165, 233, 0.13),
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 350px at 5% 30%,
+      rgba(186, 230, 253, 0.16),
+      transparent 70%
+    ),
+    #f3f8fc !important;
+
+  color: #17233a !important;
+}
+
+
+/* ============================================================
+   DARK BACKGROUND
+   ============================================================ */
+
+html.dark body {
+  background:
+    radial-gradient(
+      900px 450px at 70% -10%,
+      rgba(34, 211, 238, 0.055),
+      transparent 70%
+    ),
+    #06101a !important;
+
+  color: #f1f5f9 !important;
+}
+
+
+/* ============================================================
+   APPLICATION SHELL
+   ============================================================ */
+
+.tm-app-shell {
+  min-height: 100vh;
+
+  width: 100%;
+
+  background: transparent;
+
+  color: var(--tm-text);
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.tm-sidebar {
+  position: fixed;
+
+  inset: 0 auto 0 0;
+
+  z-index: 50;
+
+  width: var(--tm-sidebar-width);
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border-right: 1px solid var(--tm-border);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--tm-sidebar-bg),
+      var(--tm-page-bg-2)
+    );
+
+  color: var(--tm-text);
+
+  backdrop-filter: blur(18px);
+
+  transition:
+    background 200ms ease,
+    border-color 200ms ease;
+}
+
+
+/* ============================================================
+   BRAND
+   ============================================================ */
+
+.tm-sidebar-brand {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 24px 22px 21px;
+
+  border: 0;
+
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.tm-sidebar-brand:hover
+.tm-brand-name {
+  color: var(--tm-accent);
+}
+
+
+.tm-brand-mark {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid
+    rgba(6, 182, 212, 0.28);
+
+  border-radius: 11px;
+
+  background:
+    rgba(6, 182, 212, 0.07);
+
+  color: var(--tm-accent);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 5px 16px
+    rgba(6, 182, 212, 0.08);
+}
+
+
+.tm-brand-text {
+  min-width: 0;
+}
+
+
+.tm-brand-name {
+  color: var(--tm-accent);
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.28em;
+
+  line-height: 1.1;
+
+  transition: color 160ms ease;
+}
+
+
+.tm-brand-ai {
+  margin-top: 3px;
+
+  color: var(--tm-text);
+
+  font-size: 20px;
+
+  font-weight: 750;
+
+  line-height: 1.1;
+}
+
+
+.tm-brand-subtitle {
+  margin-top: 8px;
+
+  color: var(--tm-text-3);
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+   ============================================================ */
+
+.tm-sidebar-nav {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  padding: 3px 13px 15px;
+
+  scrollbar-width: none;
+}
+
+.tm-sidebar-nav::-webkit-scrollbar {
+  display: none;
+}
+
+
+.tm-nav-group {
+  margin-bottom: 21px;
+}
+
+
+.tm-nav-section {
+  padding: 0 12px;
+
+  margin-bottom: 7px;
+
+  color: var(--tm-text-4);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+}
+
+
+.tm-nav-items {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.tm-nav-item {
+  position: relative;
+
+  width: 100%;
+
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 12px;
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--tm-text-3);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+
+.tm-nav-item:hover {
+  background:
+    rgba(6, 182, 212, 0.055);
+
+  border-color:
+    rgba(6, 182, 212, 0.10);
+
+  color: var(--tm-text);
+}
+
+
+.tm-nav-item:active {
+  transform: scale(0.99);
+}
+
+
+.tm-nav-item-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 182, 212, 0.12),
+      rgba(6, 182, 212, 0.055)
+    );
+
+  border-color:
+    rgba(6, 182, 212, 0.25);
+
+  color: var(--tm-accent);
+
+  box-shadow:
+    0 5px 18px
+    rgba(6, 182, 212, 0.055);
+}
+
+
+.tm-nav-icon {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  color: currentColor;
+
+  font-size: 13px;
+}
+
+
+.tm-nav-item-active
+.tm-nav-icon {
+  background:
+    rgba(6, 182, 212, 0.09);
+}
+
+
+.tm-nav-label {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+.tm-nav-active-dot {
+  position: absolute;
+
+  right: 10px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--tm-accent);
+
+  box-shadow:
+    0 0 8px
+    rgba(6, 182, 212, 0.65);
+}
+
+
+/* ============================================================
+   SIDEBAR STATUS
+   ============================================================ */
+
+.tm-sidebar-status {
+  flex-shrink: 0;
+
+  padding: 9px 13px 16px;
+}
+
+
+.tm-status-card {
+  padding: 13px 14px;
+
+  border: 1px solid var(--tm-border);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--tm-surface-2),
+      var(--tm-surface)
+    );
+
+  box-shadow:
+    var(--tm-shadow);
+}
+
+
+.tm-status-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.tm-status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #10b981;
+
+  box-shadow:
+    0 0 9px
+    rgba(16, 185, 129, 0.45);
+
+  animation:
+    tm-pulse 2s ease-in-out infinite;
+}
+
+
+.tm-status-title {
+  color: #10b981;
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.09em;
+}
+
+
+.tm-status-text {
+  margin-top: 8px;
+
+  color: var(--tm-text-3);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+@keyframes tm-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}
+
+
+/* ============================================================
+   MAIN SHELL
+   ============================================================ */
+
+.tm-main-shell {
+  min-height: 100vh;
+
+  margin-left: var(--tm-sidebar-width);
+
+  position: relative;
+
+  background: transparent;
+}
+
+
+/* ============================================================
+   PAGE CONTENT
+   ============================================================ */
+
+.tm-page-content {
+  min-height: 100vh;
+
+  box-sizing: border-box;
+
+  padding-top: var(--tm-navbar-height);
+
+  background: transparent;
+
+  color: var(--tm-text);
+}
+
+
+/* ============================================================
+   GLOBAL LIGHT THEME OVERRIDES
+   These neutralize old dark hardcoded page backgrounds.
+   ============================================================ */
+
+html.light
+.bg-\[\#071019\],
+html.light
+.bg-\[\#06101a\],
+html.light
+.bg-\[\#08111b\],
+html.light
+.bg-\[\#050b14\],
+html.light
+.bg-\[\#07111c\],
+html.light
+.bg-\[\#0a1622\] {
+  background:
+    var(--tm-surface) !important;
+}
+
+
+html.light
+.bg-\[\#071019\]\/90,
+html.light
+.bg-\[\#071019\]\/95,
+html.light
+.bg-\[\#06101a\]\/90 {
+  background:
+    rgba(255, 255, 255, 0.94) !important;
+}
+
+
+/* ============================================================
+   GLOBAL LIGHT TEXT FIXES
+   ============================================================ */
+
+html.light
+.text-white {
+  color: var(--tm-text) !important;
+}
+
+
+html.light
+.text-slate-100 {
+  color: #24344d !important;
+}
+
+
+html.light
+.text-slate-200 {
+  color: #34455f !important;
+}
+
+
+html.light
+.text-slate-300 {
+  color: #50627b !important;
+}
+
+
+html.light
+.text-slate-400 {
+  color: #66758a !important;
+}
+
+
+html.light
+.text-slate-500 {
+  color: #75869b !important;
+}
+
+
+html.light
+.text-slate-600 {
+  color: #8493a5 !important;
+}
+
+
+/* ============================================================
+   GLOBAL LIGHT BORDERS
+   ============================================================ */
+
+html.light
+.border-\[\#1b2a3d\],
+html.light
+.border-\[\#223246\],
+html.light
+.border-\[\#1d3043\] {
+  border-color:
+    var(--tm-border) !important;
+}
+
+
+/* ============================================================
+   COMMON SURFACES
+   ============================================================ */
+
+.tm-surface {
+  background: var(--tm-surface);
+
+  border: 1px solid var(--tm-border);
+
+  box-shadow: var(--tm-shadow);
+
+  border-radius: var(--tm-radius-md);
+}
+
+
+.tm-surface:hover {
+  box-shadow: var(--tm-shadow-hover);
+}
+
+
+/* ============================================================
+   COMMON PAGE TITLES
+   ============================================================ */
+
+.tm-page-title {
+  color: var(--tm-text);
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.035em;
+}
+
+
+.tm-page-description {
+  color: var(--tm-text-3);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+.tm-eyebrow {
+  color: var(--tm-accent);
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.3em;
+}
+
+
+/* ============================================================
+   LIGHT THEME BUTTONS
+   ============================================================ */
+
+html.light button {
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+
+::selection {
+  background:
+    rgba(6, 182, 212, 0.22);
+
+  color: var(--tm-text);
+}
+
+
+/* ============================================================
+   SCROLLBAR — APP
+   ============================================================ */
+
+html.light::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+html.light::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+html.light::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background:
+    #cbd9e5;
+}
+
+
+html.light::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background:
+    #aebfce;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  :root {
+    --tm-sidebar-width: 0px;
+  }
+
+  .tm-sidebar {
+    width: 250px;
+
+    transform: translateX(-100%);
+
+    transition:
+      transform 220ms ease;
+  }
+
+  .tm-main-shell {
+    margin-left: 0;
+  }
+
+  .tm-page-content {
+    padding-top: var(--tm-navbar-height);
+  }
+}
+
+
+/* ============================================================
+   REDUCE MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+}
+/* ============================================================
+   FINAL SHELL FIX
+   No artificial gap below navbar
+   ============================================================ */
+
+.tm-main-shell {
+  min-height: 100vh;
+  margin-left: var(--tm-sidebar-width);
+  position: relative;
+}
+
+.tm-page-content {
+  min-height: calc(100vh - var(--tm-navbar-height));
+  box-sizing: border-box;
+  padding-top: 0 !important;
+  background: transparent;
+  color: var(--tm-text);
+}
+
+
+/* Navbar owns its own height.
+   Page content starts immediately underneath it. */
+
+.top-navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+
+/* Prevent old page shells from creating giant top spacing */
+
+.tm-page-content > main:first-child,
+.tm-page-content > div:first-child,
+.tm-page-content > section:first-child {
+  margin-top: 0 !important;
+}
+
+
+/* Light */
+
+html.light .tm-page-content {
+  background: transparent !important;
+}
+
+
+/* Dark */
+
+html.dark .tm-page-content {
+  background: transparent !important;
+}
